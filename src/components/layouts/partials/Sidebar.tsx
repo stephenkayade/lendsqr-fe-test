@@ -1,5 +1,7 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import storage from '../../helpers/storage'
+import UserContext from '../../../context/userContext'
 
 const Sidebar = () => {
 
@@ -15,6 +17,14 @@ const Sidebar = () => {
     ]
 
     const [active, setActive] = useState<boolean>(false)
+
+    // const userContext = useContext(UserContext)
+
+    // useEffect(() => {
+    //     if (storage.checkData('users') === false) {
+    //         userContext.getUsers()
+    //       }
+    // }, [])
 
 
     return (

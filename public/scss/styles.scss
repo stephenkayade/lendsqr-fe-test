@@ -100,6 +100,13 @@ body::-webkit-scrollbar {
             .login__btn {
                 margin-top: 2rem;
                 width: 550px !important;
+
+                a {
+                    width: 100%;
+                    display: inline-flex;
+                    text-align: center;
+                    justify-content: center;
+                }
             }
         }
     }
@@ -239,6 +246,75 @@ body::-webkit-scrollbar {
                         background-color: $onwhite;
                         padding: 2rem;
                         width: 100%;
+                        position: relative;
+
+                        .filter {
+                            background-color: #ffffff;
+                            padding: 1.5rem 1rem;
+                            box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+                            border-radius: $rounded-sm;
+                            max-width: 270px;
+                            width: 100%;
+                            top: 70px;
+                            left: 20px;
+                            position: absolute;
+
+                            form {
+
+                                width: 100%;
+
+                                .form-group {
+                                    display: block;
+                                    margin-bottom: 1rem;
+                                    width: 100%;
+
+                                    select,
+                                    input {
+                                        width: 100%;
+                                        background: #FFFFFF;
+                                        opacity: 0.2;
+                                        border: 1px solid #213F7D;
+                                        border-radius: 8px;
+                                        padding: .6rem .8rem;
+                                        margin-top: .2rem;
+                                    }
+
+                                    label {
+                                        font-style: normal;
+                                        font-weight: 500;
+                                        font-size: 14px;
+                                        color: #545F7D;
+                                    }
+                                }
+
+                                .actions {
+
+                                    width: 100%;
+                                    display: flex;
+                                    justify-content: space-between;
+
+                                    a {
+                                        background-color: transparent;
+                                        border: 1px solid #545F7D;
+                                        border-radius: 8px;
+                                        padding: .6rem 1rem;
+                                        text-align: center;
+                                        color: $lendsqrLightGray;
+                                        width: 110px;
+                                    }
+
+                                    a.active {
+                                        background-color: #39CDCC;
+                                        padding: .6rem 1rem;
+                                        text-align: center;
+                                        color: $onwhite;
+                                        border-radius: 8px;
+                                        width: 110px;
+                                        border: none;
+                                    }
+                                }
+                            }
+                        }
 
                         thead {
                             tr {
@@ -337,6 +413,13 @@ body::-webkit-scrollbar {
                                         background-color: #545F7D15;
                                     }
                                 }
+
+                                td:last-child {
+                                    border-bottom: 0 !important;
+                                }
+
+                                
+
 
                             }
                         }

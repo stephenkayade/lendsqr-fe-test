@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import UserCard from './UserCard'
 import UserContext from '../../../../context/userContext'
 import storage from '../../../helpers/storage'
+import Pagination from './Pagination'
 
 const Users = () => {
 
@@ -23,10 +24,21 @@ const Users = () => {
 
   const filterRef = useRef<any>()
   const [expandedIndex, setExpandedIndex] = useState<number>(-1)
-  const [rStatus, setRStatus] = useState<string>('')
-  const [select, setSelect] = useState<string>('')
+  const [activePage, setActivePage] = useState<boolean>(false)
+  const [select, setSelect] = useState<number>(10)
+  const [postPerPage, setPostPerPage] = useState<number>(10)
+  const [currentPage, setCurrentPage] = useState<number>(1)
 
   const userContext = useContext(UserContext)
+
+  const indexOfLastPost = currentPage * postPerPage
+  const indexOfFirstPost = indexOfLastPost - postPerPage
+
+  const paginate = (e: any, pageNumber: number) => {
+    if (e) { e.preventDefault() }
+    setActivePage(true)
+    setCurrentPage(pageNumber)
+  }
 
   useEffect(() => {
 
@@ -48,13 +60,15 @@ const Users = () => {
       userContext.getUsers()
     }
 
+
+
     return () => {
       document.removeEventListener('click', handler)
     }
 
 
-
   }, [])
+
 
   const onPop = (index: number) => {
 
@@ -111,7 +125,7 @@ const Users = () => {
   }
 
   const renderedItems = userContext.users.length > 0 &&
-    userContext.users.slice(0, select ? select :  10).map((user: any, index: number) => {
+    userContext.users.slice(indexOfFirstPost, indexOfLastPost).map((user: any, index: number) => {
 
       const isExpanded = index === expandedIndex
 
@@ -151,6 +165,7 @@ const Users = () => {
         </tr>
       )
     })
+
 
   return (
     <>
@@ -202,6 +217,55 @@ const Users = () => {
                   <tr>
                   </tr>
                 </tbody>
+
+                <div className="filter">
+                  <form action="">
+
+                    <div className="form-group">
+                      <label htmlFor="">Organization</label>
+                      <select name="" id="">
+                        <option value=""></option>
+                      </select>
+                    </div>
+
+                    <div className="form-group">
+                      <label htmlFor="">Organization</label>
+                      <input type="text" />
+                    </div>
+
+                    <div className="form-group">
+                      <label htmlFor="">Email</label>
+                      <input type="text" />
+                    </div>
+
+                    <div className="form-group">
+                      <label htmlFor="">Date</label>
+                      <input type="date" />
+                    </div>
+
+                    <div className="form-group">
+                      <label htmlFor="">Phone Number</label>
+                      <input type="text" />
+                    </div>
+
+                    <div className="form-group">
+                      <label htmlFor="">Status</label>
+                      <select name="" id="">
+                        <option value=""></option>
+                      </select>
+                    </div>
+
+                    <div className="d-flex actions">
+
+                      <Link to=''>Reset</Link>
+
+                      <Link to='' className='active'>Filter</Link>
+
+                    </div>
+
+                  </form>
+                </div>
+
               </table>
 
               <div className='pagination d-flex justify-content-between'>
@@ -210,7 +274,7 @@ const Users = () => {
 
                   <Link to='' className="select">
 
-                    <select name="" id="" onChange={(e) => setSelect(e.target.value)}>
+                    <select name="" id="" onChange={(e) => setSelect(parseInt(e.target.value))}>
                       <option value="10">10</option>
                       <option value="20">20</option>
                       <option value="30">30</option>
@@ -230,6 +294,12 @@ const Users = () => {
                   <p className='text-light fw-400 fs-14'>out of 100</p>
 
                 </div>
+                <Pagination
+                  postPerPage={postPerPage}
+                  totalPosts={userContext.users.length}
+                  paginate={paginate}
+                  activePage={activePage}
+                />
               </div>
 
             </div>
