@@ -14,9 +14,12 @@ const UserDetails = () => {
   const { id } = useParams()
 
   useEffect(() => {
+
     if (storage.checkData('user') === false) {
       userContext.getUser(id)
     }
+
+
   }, [])
 
   const configTab = (e: any, val: any) => {
@@ -29,8 +32,10 @@ const UserDetails = () => {
   }
 
   const formatCurrency = (lang: string, currency: string, value: number): string => {
+    // const formatCurrency = (value: number): string => {
     const l = lang.substring(0, 2)
-    return new Intl.NumberFormat(`en-${l}`, { style: 'currency', currency: `${currency}` }).format(value)
+    return value.toLocaleString(`en-${l}`, { style: 'currency', currency: `${currency}` })
+    // return new Intl.NumberFormat('en-NG', { style: 'currency', currency: 'NGN' }).format(userContext.user?.accountBalance)
   }
 
   const formatEmail = (firstName: string, lastName: string): string => {
@@ -183,17 +188,29 @@ const UserDetails = () => {
                           {
                             `${formatCurrency
                               (`${userContext.user?.profile?.currency}`,
-                                userContext.user?.profile?.currency,
+                                `${userContext.user?.profile?.currency}`,
                                 userContext.user?.education?.monthlyIncome[0]
                               )}
                               -
                               ${formatCurrency
                               (`${userContext.user?.profile?.currency}`,
-                                userContext.user?.profile?.currency,
+                                `${userContext.user?.profile?.currency}`,
                                 userContext.user?.education?.monthlyIncome[1]
                               )}
                               `
                           }
+                          {/* {
+                            `${formatCurrency
+                              (
+                                userContext.user?.education?.monthlyIncome[0]
+                              )}
+                              -
+                              ${formatCurrency
+                              (
+                                userContext.user?.education?.monthlyIncome[1]
+                              )}
+                              `
+                          } */}
                         </p>
                       </div>
 
@@ -202,8 +219,9 @@ const UserDetails = () => {
                         <p className="text-light fw-500 fs-16">
                           {
                             formatCurrency
-                              (`${userContext.user?.profile?.currency}`,
-                                userContext.user?.profile?.currency,
+                              (
+                                `${userContext.user?.profile?.currency}`,
+                                `${userContext.user?.profile?.currency}`,
                                 userContext.user?.education?.loanRepayment
                               )
                           }
@@ -257,6 +275,7 @@ const UserDetails = () => {
                       <div className="info__card">
                         <h4 className="text-light fs-12 fw-400">EMAIL ADDRESS</h4>
                         <p className="text-light fw-500 fs-16">{formatEmail(userContext.user?.guarantor?.firstName, userContext.user?.guarantor?.lastName)}</p>
+                        {/* <p className="text-light fw-500 fs-16">{userContext.user?.guarantor?.firstName + userContext.user?.guarantor?.lastName}</p> */}
                       </div>
 
                       <div className="info__card">
@@ -285,6 +304,7 @@ const UserDetails = () => {
                       <div className="info__card">
                         <h4 className="text-light fs-12 fw-400">EMAIL ADDRESS</h4>
                         <p className="text-light fw-500 fs-16">{formatEmail(userContext.user?.guarantor?.firstName, userContext.user?.guarantor?.lastName)}</p>
+                        {/* <p className="text-light fw-500 fs-16">{userContext.user?.guarantor?.firstName + userContext.user?.guarantor?.lastName}</p> */}
                       </div>
 
                       <div className="info__card">
