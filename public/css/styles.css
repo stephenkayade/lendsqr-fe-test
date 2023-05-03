@@ -617,6 +617,7 @@ body::-webkit-scrollbar {
   font-weight: 600;
   font-size: 12px;
   text-transform: uppercase;
+  cursor: pointer;
 }
 .ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-card .ui-dashboard-table table thead tr th img {
   position: relative;

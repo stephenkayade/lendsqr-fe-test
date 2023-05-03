@@ -23,8 +23,9 @@ const Users = () => {
   ]
 
   const filterRef = useRef<any>()
-  const [expandedIndex, setExpandedIndex] = useState<number>(-1)
   const [activePage, setActivePage] = useState<boolean>(false)
+  const [showFilter, setShowFilter] = useState<boolean>(false)
+  const [expandedIndex, setExpandedIndex] = useState<number>(-1)
   const [select, setSelect] = useState<number>(10)
   const [postPerPage, setPostPerPage] = useState<number>(10)
   const [currentPage, setCurrentPage] = useState<number>(1)
@@ -124,6 +125,11 @@ const Users = () => {
     return result
   }
 
+  const handleShow = () => {
+    setShowFilter(!showFilter)
+  }
+
+
   const renderedItems = userContext.users.length > 0 &&
     userContext.users.slice(indexOfFirstPost, indexOfLastPost).map((user: any, index: number) => {
 
@@ -183,31 +189,31 @@ const Users = () => {
               <table className=' rounded-sm'>
                 <thead>
                   <tr>
-                    <th align='left'>
+                    <th onClick={() => handleShow()} align='left'>
                       <span>organization</span>
                       <img src="../../../images/assets/icons/filter.svg" alt="org" />
                     </th>
-                    <th align='left'>
+                    <th onClick={() => handleShow()} align='left'>
                       <span>Username</span>
                       <img src="../../../images/assets/icons/filter.svg" alt="org" />
                     </th>
-                    <th align='left'>
+                    <th onClick={() => handleShow()} align='left'>
                       <span>Email</span>
                       <img src="../../../images/assets/icons/filter.svg" alt="org" />
                     </th>
-                    <th align='left'>
+                    <th onClick={() => handleShow()} align='left'>
                       <span>Phone number</span>
                       <img src="../../../images/assets/icons/filter.svg" alt="org" />
                     </th>
-                    <th align='left'>
+                    <th onClick={() => handleShow()} align='left'>
                       <span>Date joined</span>
                       <img src="../../../images/assets/icons/filter.svg" alt="org" />
                     </th>
-                    <th align='left'>
+                    <th onClick={() => handleShow()} align='left'>
                       <span>Status</span>
                       <img src="../../../images/assets/icons/filter.svg" alt="org" />
                     </th>
-                    <th align='left'>
+                    <th onClick={() => handleShow()} align='left'>
                       <span></span>
                     </th>
                   </tr>
@@ -218,53 +224,59 @@ const Users = () => {
                   </tr>
                 </tbody>
 
-                <div className="filter">
-                  <form action="">
+                {
+                  showFilter === true &&
 
-                    <div className="form-group">
-                      <label htmlFor="">Organization</label>
-                      <select name="" id="">
-                        <option value=""></option>
-                      </select>
-                    </div>
+                  <div className="filter">
+                    <form action="">
 
-                    <div className="form-group">
-                      <label htmlFor="">Organization</label>
-                      <input type="text" />
-                    </div>
+                      <div className="form-group">
+                        <label htmlFor="">Organization</label>
+                        <select name="" id="">
+                          <option value=""></option>
+                        </select>
+                      </div>
 
-                    <div className="form-group">
-                      <label htmlFor="">Email</label>
-                      <input type="text" />
-                    </div>
+                      <div className="form-group">
+                        <label htmlFor="">Organization</label>
+                        <input type="text" />
+                      </div>
 
-                    <div className="form-group">
-                      <label htmlFor="">Date</label>
-                      <input type="date" />
-                    </div>
+                      <div className="form-group">
+                        <label htmlFor="">Email</label>
+                        <input type="text" />
+                      </div>
 
-                    <div className="form-group">
-                      <label htmlFor="">Phone Number</label>
-                      <input type="text" />
-                    </div>
+                      <div className="form-group">
+                        <label htmlFor="">Date</label>
+                        <input type="date" />
+                      </div>
 
-                    <div className="form-group">
-                      <label htmlFor="">Status</label>
-                      <select name="" id="">
-                        <option value=""></option>
-                      </select>
-                    </div>
+                      <div className="form-group">
+                        <label htmlFor="">Phone Number</label>
+                        <input type="text" />
+                      </div>
 
-                    <div className="d-flex actions">
+                      <div className="form-group">
+                        <label htmlFor="">Status</label>
+                        <select name="" id="">
+                          <option value=""></option>
+                        </select>
+                      </div>
 
-                      <Link to=''>Reset</Link>
+                      <div className="d-flex actions">
 
-                      <Link to='' className='active'>Filter</Link>
+                        <Link to=''>Reset</Link>
 
-                    </div>
+                        <Link to='' className='active'>Filter</Link>
 
-                  </form>
-                </div>
+                      </div>
+
+                    </form>
+                  </div>
+
+                }
+
 
               </table>
 
