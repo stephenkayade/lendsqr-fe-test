@@ -1,0 +1,436 @@
+// All external styling files are imported at the top here
+@import './variables.scss';
+@import './utilities.scss';
+
+// CSS Reset: this is to remove default browser padding behavior and margin styles on the body
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+
+.split-screen {
+    // background-color: #fdfdfd;
+    display: grid;
+    width: 100%;
+    grid-template-columns: 1fr 1fr;
+    height: 95vh;
+
+    .left__container {
+        max-width: 95%;
+        margin: 0 auto;
+
+        .left {
+            display: flex;
+            flex-direction: column;
+            background: #fefefe;
+            height: 100%;
+
+            .logo__img {
+                margin-top: 6rem;
+                margin-bottom: 10rem;
+                height: 36px;
+                padding-left: 3rem;
+            }
+
+            .banner {
+                display: flex;
+                justify-content: center;
+                // height: 100%;
+                // align-items: center;
+
+                img {
+                    width: 700px;
+                }
+            }
+
+        }
+    }
+
+
+    .right {
+        background-color: $onwhite;
+        display: flex;
+        align-items: center;
+        // justify-content: center;
+        box-shadow: 0px 15px 90px rgba(0, 0, 0, 0.03);
+
+        form {
+            padding-left: 7rem;
+            width: 100%;
+
+            .form__title {
+                color: $lendsqrBlue;
+                padding-bottom: .5rem;
+                line-height: 1.5em;
+            }
+
+            .form__description {
+                color: $lendsqrLightGray;
+                font-weight: $fw-400;
+                padding-bottom: 4rem;
+            }
+
+            .form-group {
+                margin-bottom: 1.5rem;
+                width: 100%;
+
+                input {
+                    border-radius: $rounded;
+                    padding: .9rem 1rem;
+                    background: $onwhite;
+                    width: 550px;
+                    border: 2px solid rgba(84, 95, 125, 0.15);
+                }
+
+                input::placeholder {
+                    color: $lendsqrLightGray;
+                }
+            }
+
+            a.forgot {
+                letter-spacing: 0.1em;
+            }
+
+            .login__btn {
+                margin-top: 2rem;
+                width: 550px !important;
+            }
+        }
+    }
+}
+
+.ui-dashboard {
+
+    .topbar {
+        padding: 2rem 1rem 2rem 2rem;
+    }
+
+    .ui-dashboard-body {
+        min-height: 100vh;
+        display: flex;
+        -webkit-transition: all 0.2s ease;
+        -o-transition: all 0.2s ease;
+        transition: all 0.2s ease;
+        position: relative;
+
+
+
+        .sidebar {
+            background: #fff;
+            min-height: 100%;
+            width: 300px;
+
+            .content {
+
+
+                .sdr__org {
+                    padding-top: 2rem;
+                    padding-bottom: 3rem;
+                }
+
+                .sdr__dash {
+                    margin-bottom: 2rem;
+                }
+
+                .sdr__stack {
+                    padding-left: 1.5rem;
+                }
+
+                .sdr__link__route {
+
+                    padding-top: .5rem;
+
+                    .sdr__links {
+                        padding: .5rem;
+                        padding-left: 1.5rem;
+                        margin-bottom: 1rem;
+                        border-left: 4px solid transparent;
+                        color: #21407d9f;
+                    }
+
+                    .sdr__links.active,
+                    .sdr__links:hover {
+                        transition: 400ms ease-in-out all;
+                        background-color: $primaryLightColor;
+                        color: $lendsqrBlue;
+                        border-left: 4px solid $primaryColor;
+                    }
+                }
+
+
+            }
+
+
+        }
+
+
+        .ui-dashboard-content {
+            background-color: #FBFBFB;
+            padding-top: 4rem;
+            padding-left: 4rem;
+            padding-right: 4rem;
+            width: 100%;
+
+            .ui-card {
+
+                .ui-dash-usercard {
+
+                    display: grid;
+                    max-width: 100%;
+                    width: 100%;
+                    grid-template-columns: repeat(4, 1fr);
+                    gap: 2rem;
+                    margin-top: 2.5rem;
+                    margin-bottom: 2.5rem;
+
+
+                    .inner {
+
+                        background-color: $onwhite;
+                        padding: 1.3rem;
+                        padding-left: 1.8rem;
+                        padding-bottom: 2rem;
+                        box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+
+                        .user-icon {
+                            height: 40px;
+                            width: 40px;
+                            border-radius: 100%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                        }
+
+                        .user {
+                            padding: .7rem 0;
+                        }
+
+                    }
+
+                }
+
+                .ui-dashboard-table {
+
+                    // justify-content: space-between;
+
+
+                    table {
+                        width: 100%;
+                        background-color: $onwhite;
+                        padding: 2rem;
+                        width: 100%;
+
+                        thead {
+                            tr {
+
+                                th {
+                                    padding-bottom: 1rem;
+                                    color: $lendsqrLightGray;
+                                    font-weight: $fw-600;
+                                    font-size: 12px;
+                                    text-transform: uppercase;
+
+                                    img {
+                                        position: relative;
+                                        top: 4px;
+                                        margin-left: 8px;
+
+                                    }
+                                }
+                            }
+                        }
+
+                        tbody {
+
+                            tr {
+                                td {
+                                    color: $lendsqrLightGray;
+                                    font-weight: $fw-400;
+                                    padding: .8rem 0;
+                                    padding-top: 1rem;
+                                    border-bottom: 1.5px solid rgba(33, 63, 125, 0.1) !important;
+
+                                    img {
+                                        cursor: pointer;
+                                        height: 14.5px;
+                                    }
+
+                                    .menupop {
+
+                                        width: 180px;
+                                        padding: 1.3rem;
+                                        padding-left: 1.5rem;
+                                        background-color: #fff;
+                                        font-weight: $fw-500;
+                                        border-radius: $rounded-sm;
+                                        box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+                                        border: 1px solid rgba(84, 95, 125, 0.04);
+                                        left: -105px;
+                                        top: 7px;
+                                        z-index: 5;
+
+                                        a {
+                                            text-decoration: none;
+                                            display: flex;
+                                            align-items: center;
+                                            margin-bottom: 1rem;
+
+                                            span {
+                                                margin-left: .7rem;
+                                                color: $lendsqrLightGray;
+                                            }
+                                        }
+
+                                        a:last-child {
+                                            margin-bottom: 0;
+                                        }
+
+
+                                    }
+
+                                    span.status {
+                                        display: inline-flex;
+                                        align-items: center;
+                                        padding: .3rem 1rem;
+                                        border-radius: 100px;
+                                        text-transform: capitalize;
+                                        font-weight: $fw-400;
+                                    }
+
+                                    span.status.red {
+                                        color: #E4033B;
+                                        background-color: #E4033B15;
+                                    }
+
+                                    span.status.yellow {
+                                        color: #E9B200;
+                                        background-color: #E9B20015;
+                                    }
+
+                                    span.status.green {
+                                        color: #39CD62;
+                                        background-color: #39CD6215;
+                                    }
+
+                                    span.status.gray {
+                                        color: #545F7D;
+                                        background-color: #545F7D15;
+                                    }
+                                }
+
+                            }
+                        }
+                    }
+                }
+
+
+
+            }
+
+            .ui-dash-panel {
+                padding: 2rem;
+                background-color: #ffffff;
+                border-radius: $rounded-sm;
+                border: 1px solid rgba(33, 63, 125, 0.06);
+                box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+                margin-bottom: 2rem;
+                position: relative;
+
+                .userdetails {
+                    display: flex;
+                    align-items: center;
+                    padding-bottom: 3rem;
+
+                    .img__card {
+                        height: 100px;
+                        width: 100px;
+                        border-radius: 100%;
+                        background-color: #213F7D15;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-right: 1.5rem;
+                    }
+
+                    .account__details {
+
+                        h3 {
+                            padding-bottom: .5rem;
+                        }
+
+                    }
+
+                    .tier {
+                        padding: 1rem 2rem;
+                        border-left: 1px solid rgb(84, 95, 125, 0.2);
+                        border-right: 1px solid rgb(84, 95, 125, 0.2);
+                        margin: 0 2rem;
+                        height: 100%;
+
+                        h3 {
+                            padding-bottom: .5rem;
+                            padding-top: .4rem;
+                        }
+                    }
+
+                    .bank__info {
+                        h3 {
+                            padding-bottom: .5rem;
+                        }
+
+                    }
+                }
+
+                .tab-panel {
+                    width: 100%;
+                    position: absolute;
+                    display: grid;
+                    grid-template-columns: repeat(6, 1fr);
+                    justify-content: space-between;
+                    bottom: 0px;
+                    padding-right: 1.2rem;
+                    list-style: none;
+
+                    .tab {
+                        cursor: pointer;
+                        // padding: 0 2rem;
+                        text-align: center;
+                        width: fit-content;
+                        color: #000000;
+                        padding: 0 1rem;
+                        border-bottom: 2px solid transparent;
+                        padding-bottom: .5rem;
+                        transition: 200ms all ease-in-out;
+                        
+                    }
+
+                    .tab.active {
+                        padding: 0 1rem;
+                        border-bottom: 2px solid #39CDCC;
+                        color: #39CDCC;
+                        transition: 200ms all ease-in-out;
+
+                    }
+
+                    .tab:focus-visible {
+                        outline: none;
+                    }
+
+                }
+
+            }
+
+        }
+    }
+
+    .ui-dashboard-body.sdbr--cllps {
+        padding-left: 91px !important;
+    }
+
+}
