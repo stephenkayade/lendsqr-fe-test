@@ -141,7 +141,56 @@ body::-webkit-scrollbar {
         top: 0px;
         left: 0px;
         z-index: 7;
+
+        .inner {
+
+            display: flex;
+
+            .logo {
+                width: 330px;
+
+            }
+
+            .search {
+                width: 100%;
+                padding-left: 4rem;
+                padding-right: 4rem;
+
+                form {
+                    position: relative;
+                    width: 400px;
+
+
+                    input {
+                        padding: .7rem 1rem;
+                        width: 100%;
+                        background: #FFFFFF;
+                        opacity: 0.2;
+                        border: 1px solid #213F7D;
+                        border-radius: 8px;
+                    }
+
+                    .search__icon {
+                        position: absolute;
+                        top: 0px;
+                        right: 0px;
+                        background-color: #39CDCC;
+                        color: #fff;
+                        padding: .76rem 1rem;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border-top-right-radius: 8px;
+                        border-bottom-right-radius: 8px;
+                    }
+
+                }
+
+            }
+        }
     }
+
+
 
     .ui-dashboard-body {
         min-height: 100vh;
@@ -444,7 +493,7 @@ body::-webkit-scrollbar {
                                     border-bottom: 0 !important;
                                 }
 
-                                
+
 
 
                             }
