@@ -25,7 +25,7 @@ const Sidebar = () => {
         { id: '2erifci', title: 'Services', imgUrl: '../../../images/assets/icons/loan-request.svg', route: '' },
         { id: '2erjfck', title: 'Service Account', imgUrl: '../../../images/assets/icons/whitelist.svg', route: '' },
         { id: '2erkfcl', title: 'Settlements', imgUrl: '../../../images/assets/icons/karma.svg', route: '' },
-        { id: '2erkfcl', title: 'Reports', imgUrl: '../../../images/assets/icons/karma.svg', route: '' },
+        { id: '2erdfcl', title: 'Reports', imgUrl: '../../../images/assets/icons/karma.svg', route: '' },
     ]
 
     const [active, setActive] = useState<boolean>(false)

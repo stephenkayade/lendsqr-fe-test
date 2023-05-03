@@ -49,23 +49,20 @@ const UserState = (props: any) => {
 
         setLoading()
 
-        try {
+        let user: any = {}
 
-            await Axios.get(`${process.env.REACT_APP_BASE_URL}/${id}`)
+        const users:Array<any> = storage.getUsers()
 
-                .then((resp) => {
-                    console.log(resp)
-                    storage.saveUser('user', resp.data)
-                    dispatch({
-                        type: GET_USER,
-                        payload: resp.data
-                    })
-                }).catch((err) => {
-                    console.log(err)
-                })
+        if(users.length){
 
-        } catch (error) {
-            console.log(error)
+            user = users.find((x) => x.id === id)
+            console.log(user)
+
+            dispatch({
+                type: GET_USER,
+                payload: user
+            })
+
         }
 
     }

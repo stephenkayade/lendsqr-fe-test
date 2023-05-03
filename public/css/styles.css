@@ -484,6 +484,42 @@ body::-webkit-scrollbar {
   left: 0px;
   z-index: 7;
 }
+.ui-dashboard .topbar .inner {
+  display: flex;
+}
+.ui-dashboard .topbar .inner .logo {
+  width: 330px;
+}
+.ui-dashboard .topbar .inner .search {
+  width: 100%;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+.ui-dashboard .topbar .inner .search form {
+  position: relative;
+  width: 400px;
+}
+.ui-dashboard .topbar .inner .search form input {
+  padding: 0.7rem 1rem;
+  width: 100%;
+  background: #FFFFFF;
+  opacity: 0.2;
+  border: 1px solid #213F7D;
+  border-radius: 8px;
+}
+.ui-dashboard .topbar .inner .search form .search__icon {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: #39CDCC;
+  color: #fff;
+  padding: 0.76rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
 .ui-dashboard .ui-dashboard-body {
   min-height: 100vh;
   display: flex;
