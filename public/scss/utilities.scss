@@ -259,7 +259,7 @@
 }
 
 .d-block {
-    display: block;
+    display: block !important;
 }
 
 .d-flex {
@@ -402,4 +402,8 @@ a {
 
 .bg-success {
     background-color: $primaryColor !important;
+}
+
+.separate {
+    padding-bottom: 7rem;
 }

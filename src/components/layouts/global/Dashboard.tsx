@@ -17,7 +17,10 @@ const DashboardLayout = ({ Component }: Partial<IDLayoutProps>) => {
                     <SideBar />
 
                     <div className="ui-dashboard-content">
-                        <Component />
+                        <div className="ui-content">
+                            <Component />
+
+                        </div>
                     </div>
 
 

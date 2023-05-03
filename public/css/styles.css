@@ -195,7 +195,7 @@
 }
 
 .d-block {
-  display: block;
+  display: block !important;
 }
 
 .d-flex {
@@ -336,6 +336,10 @@ a {
   background-color: #39CDCC !important;
 }
 
+.separate {
+  padding-bottom: 7rem;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -419,6 +423,11 @@ body::-webkit-scrollbar {
 
 .ui-dashboard .topbar {
   padding: 2rem 1rem 2rem 2rem;
+  position: sticky;
+  background-color: #ffffff;
+  top: 0px;
+  left: 0px;
+  z-index: 7;
 }
 .ui-dashboard .ui-dashboard-body {
   min-height: 100vh;
@@ -432,6 +441,9 @@ body::-webkit-scrollbar {
   background: #fff;
   min-height: 100%;
   width: 300px;
+  position: fixed !important;
+  left: 0px;
+  z-index: 500;
 }
 .ui-dashboard .ui-dashboard-body .sidebar .content .sdr__org {
   padding-top: 2rem;
@@ -462,10 +474,13 @@ body::-webkit-scrollbar {
 }
 .ui-dashboard .ui-dashboard-body .ui-dashboard-content {
   background-color: #FBFBFB;
-  padding-top: 4rem;
-  padding-left: 4rem;
-  padding-right: 4rem;
+  padding-left: 300px;
   width: 100%;
+}
+.ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-content {
+  padding-top: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 .ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-card .ui-dash-usercard {
   display: grid;
@@ -573,6 +588,34 @@ body::-webkit-scrollbar {
   color: #545F7D;
   background-color: rgba(84, 95, 125, 0.0823529412);
 }
+.ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-card .ui-dashboard-table .pagination {
+  margin-top: 1.5rem;
+}
+.ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-card .ui-dashboard-table .pagination .select {
+  position: relative;
+}
+.ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-card .ui-dashboard-table .pagination .select select {
+  color: #213F7D;
+  background-color: rgba(33, 63, 125, 0.1);
+  width: 80px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  margin: 0 0.5rem;
+  padding: 0.4rem 0.5rem;
+}
+.ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-card .ui-dashboard-table .pagination .select img {
+  position: absolute;
+  right: 20px;
+  top: 25%;
+  cursor: pointer;
+  color: #3097D1;
+  pointer-events: none;
+}
 .ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-dash-panel {
   padding: 2rem;
   background-color: #ffffff;
@@ -614,6 +657,9 @@ body::-webkit-scrollbar {
 .ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-dash-panel .userdetails .bank__info h3 {
   padding-bottom: 0.5rem;
 }
+.ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-dash-panel .tablist {
+  display: block !important;
+}
 .ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-dash-panel .tab-panel {
   width: 100%;
   position: absolute;
@@ -632,7 +678,7 @@ body::-webkit-scrollbar {
   padding: 0 1rem;
   border-bottom: 2px solid transparent;
   padding-bottom: 0.5rem;
-  transition: 200ms all ease-in-out;
+  transition: 50ms all ease-in-out;
 }
 .ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-dash-panel .tab-panel .tab.active {
   padding: 0 1rem;
@@ -642,6 +688,49 @@ body::-webkit-scrollbar {
 }
 .ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-dash-panel .tab-panel .tab:focus-visible {
   outline: none;
+}
+.ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-dash-panel .personal__info h3 {
+  margin-bottom: 2rem;
+}
+.ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-dash-panel .personal__info .pinfo h4,
+.ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-dash-panel .personal__info .einfo h4,
+.ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-dash-panel .personal__info .sinfo h4,
+.ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-dash-panel .personal__info .ginfo h4,
+.ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-dash-panel .personal__info .gdinfo h4 {
+  padding-bottom: 0.4rem;
+}
+.ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-dash-panel .personal__info .pinfo,
+.ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-dash-panel .personal__info .einfo,
+.ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-dash-panel .personal__info .sinfo,
+.ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-dash-panel .personal__info .ginfo,
+.ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-dash-panel .personal__info .gdinfo {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 4rem;
+  row-gap: 2rem;
+  border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+  padding-bottom: 2rem;
+  margin-bottom: 2rem;
+  transition: all 300ms ease-in-out;
+}
+.ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-dash-panel .personal__info .einfo {
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 2rem;
+}
+.ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-dash-panel .personal__info .ginfo {
+  column-gap: 3rem;
+}
+.ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-dash-panel .personal__info .gdinfo {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 3rem;
+  row-gap: 2rem;
+  border: none;
+  padding-bottom: 1rem;
+  margin-bottom: 0;
+  margin-top: 4rem;
 }
 .ui-dashboard .ui-dashboard-body.sdbr--cllps {
   padding-left: 91px !important;
