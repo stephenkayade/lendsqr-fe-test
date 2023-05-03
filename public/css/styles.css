@@ -381,6 +381,24 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+.loader {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  width: 100vw !important;
+  transition: all 300ms ease-in-out;
+  animation: load 1s infinite;
+  background: #ffffff;
+}
+
+@keyframes load {
+  0% {
+    display: none;
+  }
+  100% {
+    display: flex;
+  }
+}
 .split-screen {
   display: grid;
   width: 100%;
@@ -476,11 +494,12 @@ body::-webkit-scrollbar {
 }
 .ui-dashboard .ui-dashboard-body .sidebar {
   background: #fff;
-  min-height: 100%;
+  height: 100vh;
   width: 300px;
   position: fixed !important;
   left: 0px;
   z-index: 500;
+  overflow-y: scroll;
 }
 .ui-dashboard .ui-dashboard-body .sidebar .content .sdr__org {
   padding-top: 2rem;
@@ -508,6 +527,9 @@ body::-webkit-scrollbar {
   background-color: rgba(57, 205, 205, 0.0823529412);
   color: #213F7D;
   border-left: 4px solid #39CDCC;
+}
+.ui-dashboard .ui-dashboard-body .sidebar::-webkit-scrollbar {
+  display: none;
 }
 .ui-dashboard .ui-dashboard-body .ui-dashboard-content {
   background-color: #FBFBFB;
@@ -807,7 +829,7 @@ body::-webkit-scrollbar {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  column-gap: 4rem;
+  column-gap: 2rem;
   row-gap: 2rem;
   border-bottom: 1px solid rgba(33, 63, 125, 0.1);
   padding-bottom: 2rem;
@@ -819,13 +841,13 @@ body::-webkit-scrollbar {
   column-gap: 2rem;
 }
 .ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-dash-panel .personal__info .ginfo {
-  column-gap: 3rem;
+  column-gap: 2rem;
 }
 .ui-dashboard .ui-dashboard-body .ui-dashboard-content .ui-dash-panel .personal__info .gdinfo {
   width: 100%;
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  column-gap: 3rem;
+  column-gap: 2rem;
   row-gap: 2rem;
   border: none;
   padding-bottom: 1rem;

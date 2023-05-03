@@ -16,6 +16,18 @@ const Sidebar = () => {
         { id: '2erwfcl', title: 'Karma', imgUrl: '../../../images/assets/icons/karma.svg', route: '' },
     ]
 
+    const bussinessRoutes = [
+        { id: '2erdfcd', title: 'Organization', imgUrl: '../../../images/assets/icons/users.svg', route: '/dashboard/users' },
+        { id: '2erefce', title: 'Loan Products', imgUrl: '../../../images/assets/icons/guarantors.svg', route: '' },
+        { id: '2ergfcg', title: 'Savings Products', imgUrl: '../../../images/assets/icons/decision.svg', route: '' },
+        { id: '2erffcf', title: 'Fees and Charges', imgUrl: '../../../images/assets/icons/loan.svg', route: '' },
+        { id: '2erhfch', title: 'Transactions', imgUrl: '../../../images/assets/icons/save.svg', route: '' },
+        { id: '2erifci', title: 'Services', imgUrl: '../../../images/assets/icons/loan-request.svg', route: '' },
+        { id: '2erjfck', title: 'Service Account', imgUrl: '../../../images/assets/icons/whitelist.svg', route: '' },
+        { id: '2erkfcl', title: 'Settlements', imgUrl: '../../../images/assets/icons/karma.svg', route: '' },
+        { id: '2erkfcl', title: 'Reports', imgUrl: '../../../images/assets/icons/karma.svg', route: '' },
+    ]
+
     const [active, setActive] = useState<boolean>(false)
 
     // const userContext = useContext(UserContext)
@@ -49,6 +61,25 @@ const Sidebar = () => {
 
                     {
                         customerRoutes.map((route, index) => (
+
+
+                            <Link key={route.id} onClick={() => setActive(true)} to={`${route.route}`} className=" d-flex sdr__links">
+                                <img src={route.imgUrl} alt={route.title} className='mr-2'></img>
+                                <span>{route.title}</span>
+                            </Link>
+
+                        ))
+                    }
+
+                </div>
+                <div className="sdr__stack" style={{paddingTop: '.5rem'}}>
+                    <h3 className='fs-12 text-light fw-500'>BUSINESSES</h3>
+                </div>
+
+                <div className="sdr__link__route">
+
+                    {
+                        bussinessRoutes.map((route, index) => (
 
 
                             <Link key={route.id} onClick={() => setActive(true)} to={`${route.route}`} className=" d-flex sdr__links">

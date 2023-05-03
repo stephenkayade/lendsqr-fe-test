@@ -7,21 +7,6 @@ import Pagination from './Pagination'
 
 const Users = () => {
 
-  const users = [
-    { id: '2erwfcd', org: 'Lendsqr', username: 'Adedeji', email: 'adedejilendsqr.com', phone: '09033445555', date: 'May 15, 2020 10:00 AM', status: 'inactive' },
-    { id: '2erwdcd', org: 'Lendsqr', username: 'Adedeji', email: 'adedejilendsqr.com', phone: '09033445555', date: 'May 15, 2020 10:00 AM', status: 'active' },
-    { id: '2erwrcd', org: 'Lendsqr', username: 'Adedeji', email: 'adedejilendsqr.com', phone: '09033445555', date: 'May 15, 2020 10:00 AM', status: 'pending' },
-    { id: '2erwtcd', org: 'Lendsqr', username: 'Adedeji', email: 'adedejilendsqr.com', phone: '09033445555', date: 'May 15, 2020 10:00 AM', status: 'blacklisted' },
-    { id: '2erwycd', org: 'Lendsqr', username: 'Adedeji', email: 'adedejilendsqr.com', phone: '09033445555', date: 'May 15, 2020 10:00 AM', status: 'inactive' },
-    { id: '2erwpcd', org: 'Lendsqr', username: 'Adedeji', email: 'adedejilendsqr.com', phone: '09033445555', date: 'May 15, 2020 10:00 AM', status: 'active' },
-    { id: '2erwocd', org: 'Lendsqr', username: 'Adedeji', email: 'adedejilendsqr.com', phone: '09033445555', date: 'May 15, 2020 10:00 AM', status: 'pending' },
-    { id: '2erqfcd', org: 'Lendsqr', username: 'Adedeji', email: 'adedejilendsqr.com', phone: '09033445555', date: 'May 15, 2020 10:00 AM', status: 'blacklisted' },
-    { id: '2ersfcd', org: 'Lendsqr', username: 'Adedeji', email: 'adedejilendsqr.com', phone: '09033445555', date: 'May 15, 2020 10:00 AM', status: 'inactive' },
-    { id: '2erafcd', org: 'Lendsqr', username: 'Adedeji', email: 'adedejilendsqr.com', phone: '09033445555', date: 'May 15, 2020 10:00 AM', status: 'active' },
-    { id: '2ervfcd', org: 'Lendsqr', username: 'Adedeji', email: 'adedejilendsqr.com', phone: '09033445555', date: 'May 15, 2020 10:00 AM', status: 'pending' },
-    { id: '2ernfcw', org: 'Lendsqr', username: 'Adedeji', email: 'adedejilendsqr.com', phone: '09033445555', date: 'May 15, 2020 10:00 AM', status: 'blacklisted' },
-  ]
-
   const filterRef = useRef<any>()
   const [activePage, setActivePage] = useState<boolean>(false)
   const [showFilter, setShowFilter] = useState<boolean>(false)
