@@ -259,7 +259,7 @@
 }
 
 .d-block {
-    display: block;
+    display: block !important;
 }
 
 .d-flex {
@@ -402,4 +402,39 @@ a {
 
 .bg-success {
     background-color: $primaryColor !important;
+}
+
+.separate {
+    padding-bottom: 7rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+}
+
+nav ul li a {
+    margin-right: 1rem;
+    color: rgb(84, 95, 125, 0.6);
+}
+
+nav ul li a.prev,  nav ul li a.next{
+    background-color: rgba(33, 63, 125, 0.1);
+    border-radius: $rounded-sm;
+    padding: .4rem .4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+nav ul li a.prev img {
+    transform: rotate(360deg);
+}
+nav ul li a.next img {
+    transform: rotate(270deg);
+}
+
+.nav ul li a.active {
+    color: $lendsqrLightGray;
 }

@@ -1,20 +1,30 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import storage from '../../helpers/storage'
+import UserContext from '../../../context/userContext'
 
 const Sidebar = () => {
 
     const customerRoutes = [
-        { id: '2erwfcd', title: 'Users', imgUrl: '../../../images/assets/icons/users.svg' },
-        { id: '2erwfce', title: 'Guarantors', imgUrl: '../../../images/assets/icons/guarantors.svg' },
-        { id: '2erwfcf', title: 'Loans', imgUrl: '../../../images/assets/icons/loan.svg' },
-        { id: '2erwfcg', title: 'Decision Models', imgUrl: '../../../images/assets/icons/decision.svg' },
-        { id: '2erwfch', title: 'Savings', imgUrl: '../../../images/assets/icons/save.svg' },
-        { id: '2erwfci', title: 'Loan Requests', imgUrl: '../../../images/assets/icons/loan-request.svg' },
-        { id: '2erwfck', title: 'Whitelist', imgUrl: '../../../images/assets/icons/whitelist.svg' },
-        { id: '2erwfcl', title: 'Karma', imgUrl: '../../../images/assets/icons/karma.svg' },
+        { id: '2erwfcd', title: 'Users', imgUrl: '../../../images/assets/icons/users.svg', route: '/dashboard/users' },
+        { id: '2erwfce', title: 'Guarantors', imgUrl: '../../../images/assets/icons/guarantors.svg', route: '' },
+        { id: '2erwfcf', title: 'Loans', imgUrl: '../../../images/assets/icons/loan.svg', route: '' },
+        { id: '2erwfcg', title: 'Decision Models', imgUrl: '../../../images/assets/icons/decision.svg', route: '' },
+        { id: '2erwfch', title: 'Savings', imgUrl: '../../../images/assets/icons/save.svg', route: '' },
+        { id: '2erwfci', title: 'Loan Requests', imgUrl: '../../../images/assets/icons/loan-request.svg', route: '' },
+        { id: '2erwfck', title: 'Whitelist', imgUrl: '../../../images/assets/icons/whitelist.svg', route: '' },
+        { id: '2erwfcl', title: 'Karma', imgUrl: '../../../images/assets/icons/karma.svg', route: '' },
     ]
 
     const [active, setActive] = useState<boolean>(false)
+
+    // const userContext = useContext(UserContext)
+
+    // useEffect(() => {
+    //     if (storage.checkData('users') === false) {
+    //         userContext.getUsers()
+    //       }
+    // }, [])
 
 
     return (
@@ -41,7 +51,7 @@ const Sidebar = () => {
                         customerRoutes.map((route, index) => (
 
 
-                            <Link key={route.id} onClick={() => setActive(true)} to='' className=" d-flex sdr__links">
+                            <Link key={route.id} onClick={() => setActive(true)} to={`${route.route}`} className=" d-flex sdr__links">
                                 <img src={route.imgUrl} alt={route.title} className='mr-2'></img>
                                 <span>{route.title}</span>
                             </Link>

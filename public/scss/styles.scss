@@ -100,6 +100,13 @@ body::-webkit-scrollbar {
             .login__btn {
                 margin-top: 2rem;
                 width: 550px !important;
+
+                a {
+                    width: 100%;
+                    display: inline-flex;
+                    text-align: center;
+                    justify-content: center;
+                }
             }
         }
     }
@@ -109,6 +116,11 @@ body::-webkit-scrollbar {
 
     .topbar {
         padding: 2rem 1rem 2rem 2rem;
+        position: sticky;
+        background-color: #ffffff;
+        top: 0px;
+        left: 0px;
+        z-index: 7;
     }
 
     .ui-dashboard-body {
@@ -125,6 +137,11 @@ body::-webkit-scrollbar {
             background: #fff;
             min-height: 100%;
             width: 300px;
+            position: fixed !important;
+            left: 0px;
+            z-index: 500;
+
+
 
             .content {
 
@@ -172,10 +189,14 @@ body::-webkit-scrollbar {
 
         .ui-dashboard-content {
             background-color: #FBFBFB;
-            padding-top: 4rem;
-            padding-left: 4rem;
-            padding-right: 4rem;
+            padding-left: 300px;
             width: 100%;
+
+            .ui-content {
+                padding-top: 2rem;
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
 
             .ui-card {
 
@@ -225,6 +246,75 @@ body::-webkit-scrollbar {
                         background-color: $onwhite;
                         padding: 2rem;
                         width: 100%;
+                        position: relative;
+
+                        .filter {
+                            background-color: #ffffff;
+                            padding: 1.5rem 1rem;
+                            box-shadow: 3px 5px 20px rgba(0, 0, 0, 0.04);
+                            border-radius: $rounded-sm;
+                            max-width: 270px;
+                            width: 100%;
+                            top: 70px;
+                            left: 20px;
+                            position: absolute;
+
+                            form {
+
+                                width: 100%;
+
+                                .form-group {
+                                    display: block;
+                                    margin-bottom: 1rem;
+                                    width: 100%;
+
+                                    select,
+                                    input {
+                                        width: 100%;
+                                        background: #FFFFFF;
+                                        opacity: 0.2;
+                                        border: 1px solid #213F7D;
+                                        border-radius: 8px;
+                                        padding: .6rem .8rem;
+                                        margin-top: .2rem;
+                                    }
+
+                                    label {
+                                        font-style: normal;
+                                        font-weight: 500;
+                                        font-size: 14px;
+                                        color: #545F7D;
+                                    }
+                                }
+
+                                .actions {
+
+                                    width: 100%;
+                                    display: flex;
+                                    justify-content: space-between;
+
+                                    a {
+                                        background-color: transparent;
+                                        border: 1px solid #545F7D;
+                                        border-radius: 8px;
+                                        padding: .6rem 1rem;
+                                        text-align: center;
+                                        color: $lendsqrLightGray;
+                                        width: 110px;
+                                    }
+
+                                    a.active {
+                                        background-color: #39CDCC;
+                                        padding: .6rem 1rem;
+                                        text-align: center;
+                                        color: $onwhite;
+                                        border-radius: 8px;
+                                        width: 110px;
+                                        border: none;
+                                    }
+                                }
+                            }
+                        }
 
                         thead {
                             tr {
@@ -324,8 +414,59 @@ body::-webkit-scrollbar {
                                     }
                                 }
 
+                                td:last-child {
+                                    border-bottom: 0 !important;
+                                }
+
+                                
+
+
                             }
                         }
+                    }
+
+                    .pagination {
+                        margin-top: 1.5rem;
+
+                        .select {
+                            position: relative;
+
+                            // width: 100px;
+
+                            select {
+                                // background-color: rgba(33, 63, 125, 0.1);
+                                color: $lendsqrBlue;
+                                // border: none;
+
+                                background-color: rgba(33, 63, 125, 0.1);
+                                width: 80px;
+                                // height: 30px;
+                                -webkit-appearance: none;
+                                -moz-appearance: none;
+                                appearance: none;
+                                cursor: pointer;
+                                outline: none;
+                                border: none;
+                                border-radius: $rounded-sm;
+                                margin: 0 .5rem;
+                                padding: .4rem .5rem;
+
+
+
+                            }
+
+                            img {
+                                position: absolute;
+                                right: 20px;
+                                top: 25%;
+                                cursor: pointer;
+                                color: #3097D1;
+                                pointer-events: none;
+                            }
+                        }
+
+
+
                     }
                 }
 
@@ -346,6 +487,7 @@ body::-webkit-scrollbar {
                     display: flex;
                     align-items: center;
                     padding-bottom: 3rem;
+
 
                     .img__card {
                         height: 100px;
@@ -387,6 +529,10 @@ body::-webkit-scrollbar {
                     }
                 }
 
+                .tablist {
+                    display: block !important;
+                }
+
                 .tab-panel {
                     width: 100%;
                     position: absolute;
@@ -397,6 +543,7 @@ body::-webkit-scrollbar {
                     padding-right: 1.2rem;
                     list-style: none;
 
+
                     .tab {
                         cursor: pointer;
                         // padding: 0 2rem;
@@ -406,8 +553,8 @@ body::-webkit-scrollbar {
                         padding: 0 1rem;
                         border-bottom: 2px solid transparent;
                         padding-bottom: .5rem;
-                        transition: 200ms all ease-in-out;
-                        
+                        transition: 50ms all ease-in-out;
+
                     }
 
                     .tab.active {
@@ -422,6 +569,63 @@ body::-webkit-scrollbar {
                         outline: none;
                     }
 
+                }
+
+                .personal__info {
+
+                    h3 {
+                        margin-bottom: 2rem;
+                    }
+
+                    .pinfo h4,
+                    .einfo h4,
+                    .sinfo h4,
+                    .ginfo h4,
+                    .gdinfo h4 {
+                        padding-bottom: .4rem;
+                    }
+
+                    .pinfo,
+                    .einfo,
+                    .sinfo,
+                    .ginfo,
+                    .gdinfo {
+                        width: 100%;
+                        display: grid;
+                        grid-template-columns: repeat(5, 1fr);
+                        column-gap: 4rem;
+                        row-gap: 2rem;
+                        border-bottom: 1px solid rgb(33, 63, 125, 0.1);
+                        padding-bottom: 2rem;
+                        margin-bottom: 2rem;
+                        transition: all 300ms ease-in-out;
+
+
+                    }
+
+                    .einfo {
+
+                        grid-template-columns: repeat(4, 1fr);
+                        column-gap: 2rem;
+
+                    }
+
+                    .ginfo {
+                        column-gap: 3rem;
+                    }
+
+                    .gdinfo {
+                        width: 100%;
+                        display: grid;
+                        grid-template-columns: repeat(5, 1fr);
+                        column-gap: 3rem;
+                        row-gap: 2rem;
+                        border: none;
+                        padding-bottom: 1rem;
+                        margin-bottom: 0;
+                        margin-top: 4rem;
+
+                    }
                 }
 
             }
